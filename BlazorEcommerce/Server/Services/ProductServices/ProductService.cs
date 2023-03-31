@@ -109,6 +109,19 @@ namespace BlazorEcommerce.Server.Services.ProductServices
             return response;
         }
 
+        public async Task<ServiceResponse<List<Product>>> GetFeaturedProducts()
+        {
+            var response = new ServiceResponse<List<Product>>
+            {
+                Data = await _context.Products
+                    .Where(p => p.Featured)
+                    .Include(p => p.Variants)
+                    .ToListAsync()
+            };
+
+            return response;
+        }
+
         private async Task<List<Product>> FindProductsBySearchText(string searchText)
         {
             return await _context.Products
