@@ -61,6 +61,28 @@ namespace BlazorEcommerce.Server.Services.AuthServices
             return new ServiceResponse<int> { Data = user.Id, Message = "Registration successful!" };
         }
 
+        public async Task<ServiceResponse<bool>> ChangePassword(int userId, string newPassword)
+        {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return new ServiceResponse<bool>
+                {
+                    Success = false,
+                    Message = "User not found."
+                };
+            }
+
+            CreatePasswordHash(newPassword, out byte[] passwordHash, out byte[] passwordSalt);
+
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+
+            await _context.SaveChangesAsync();
+
+            return new ServiceResponse<bool> { Data = true, Message = "Password has been changed." };
+        }
+
         public async Task<bool> UserExists(string email)
         {
             if (await _context.Users.AnyAsync(user => user.Email.ToLower()
