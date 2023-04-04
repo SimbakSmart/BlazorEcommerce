@@ -9,6 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorEcommerce.Client", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorEcommerce.Shared", "BlazorEcommerce\Shared\BlazorEcommerce.Shared.csproj", "{13F2AE6A-BB08-4562-B9FD-4D635FA9ADE9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{08F8952C-D78E-4D2E-B96F-71CA80505476}"
+	ProjectSection(SolutionItems) = preProject
+		Notes.txt = Notes.txt
+		..\..\Users\Si.Ramirez\Downloads\stripe_1.13.12_windows_x86_64.zip = ..\..\Users\Si.Ramirez\Downloads\stripe_1.13.12_windows_x86_64.zip
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

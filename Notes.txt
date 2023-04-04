@@ -1,0 +1,7 @@
+
+https://stripe.com/docs/stripe-cli
+stripe test url 
+
+stripe -- para ver los comandos y dejar abierta para test.
+
+stripe listen --forward-to https://localhost:7202/api/payment
